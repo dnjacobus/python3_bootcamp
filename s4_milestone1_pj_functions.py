@@ -125,65 +125,67 @@ def replay():
             print(f'Oops! Y or N only :) You put {replay}')
     return replay == 'Y'
 
-#Game
-while True:
-    clear_output()
-    print('Welcome to Tic Tac Toe!')
-    board = ['#',' ',' ',' ',
-         ' ',' ',' ',
-         ' ',' ',' ']
+if __name__ == '__main__': #Discovered during modules section, game can be played in terminal
+
+    #Game
+    while True:
+        clear_output()
+        print('Welcome to Tic Tac Toe!')
+        board = ['#',' ',' ',' ',
+             ' ',' ',' ',
+             ' ',' ',' ']
     
-    game_start = ''
+        game_start = ''
     
-    player1_marker, player2_marker = player_input()
+        player1_marker, player2_marker = player_input()
     
-    choose_first() #function does not work
+        choose_first() #function does not work
     
-    while game_start not in ['Y','N']:
+        while game_start not in ['Y','N']:
         
-        game_start = input('Ready to play? Y or N' ).upper()
+            game_start = input('Ready to play? Y or N' ).upper()
         
-        if game_start == 'Y':
-            game_on = True
-        else:
-            game_on = False
-    #pass
-    while game_on:
-        display_board(board)
-        #Player 1 Turn
-        position = player_choice(board)
+            if game_start == 'Y':
+                game_on = True
+            else:
+                game_on = False
+        #pass
+        while game_on:
+            display_board(board)
+            #Player 1 Turn
+            position = player_choice(board)
         
-        place_marker(board,player1_marker,position)
+            place_marker(board,player1_marker,position)
         
-        display_board(board)
+            display_board(board)
         
-        if win_check(board, player1_marker):
-            print('You win!')
-            game_on = False 
-            break
+            if win_check(board, player1_marker):
+                print('You win!')
+                game_on = False 
+                break
             
-        if full_board_check(board):
-            print("It's a tie. You should play again")
-            game_on = False
-            break
+            if full_board_check(board):
+                print("It's a tie. You should play again")
+                game_on = False
+                break
             
         # Player2's turn
-        position = player_choice(board)
+            position = player_choice(board)
         
-        place_marker(board,player2_marker,position)
+            place_marker(board,player2_marker,position)
         
-        display_board(board)
+            display_board(board)
         
-        if win_check(board, player2_marker):
-            print('You win!')
-            game_on = False
-            break
+            if win_check(board, player2_marker):
+                print('You win!')
+                game_on = False
+                break
             
-        if full_board_check(board):
-            print("It's a tie. You should play again")
-            game_on = False
-            break
+            if full_board_check(board):
+                print("It's a tie. You should play again")
+                game_on = False
+                break
             
-            #pass
-    if not replay():
-        break
+                #pass
+        if not replay():
+            break
